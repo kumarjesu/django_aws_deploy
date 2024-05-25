@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CLINCIALS</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="%static 'css/bootstrap.min.css'%}">
+    <script src="%static 'jquery/jquery.min.js'%}"></script>
+</head>
+<body>
+    <div class="myDiv">
+            <img src="{%static 'images/clinic2.jpeg'%}" />
+    </div>
+    <div class="myDiv">
+        <h2>PATIENTS DETAILS</h2>
+    </div>
+    <div class="mycontainer">
+      {% if patient_list %}
+        <table>
+          <thead>
+            <tr>
+                <th>Id</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+          </thead>
+          {% for pat in patient_list %}
+              <tr>
+                    <td>{{pat.id}}</td>
+                    <td>{{pat.lastName}}</td>
+                    <td>{{pat.firstName}}</td>
+                    <td>{{pat.age}}</td>
+                    <td>{{pat.gender}}</td>
+                    <td>
+                       <button type="button" class="button button1"
+                        onclick="window.location.href='/update/{{pat.id}}';">
+                        UPDATE
+                        </button>
+                    </td>
+                    <td>
+                       <button type="button" class="button button1"
+                        onclick="window.location.href='/delete/{{pat.id}}';">
+                        DELETE
+                        </button>
+                    </td>
+                    <td>
+                       <button type="button" class="button button1"
+                        onclick="window.location.href='/adddata/{{pat.id}}';">
+                        ADD CLINCIAL DATA
+                        </button>
+                    </td>
+                    <td>
+                       <button type="button" class="button button1"
+                        onclick="window.location.href='/analyze/{{pat.id}}';">
+                        ANALYZE DATA
+                        </button>
+                    </td>
+              </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+      <p>
+        Patients details not available... Shortly updated....
+    {% endif %}
+    </div>
+    <br>
+    <div class="mycontainerdisp">
+        <button type="button" class="button button1"
+        onclick="window.location.href='/create';">
+        ADD PATIENTS
+        </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CLINCIALS</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="%static 'css/bootstrap.min.css'%}">
+    <script src="%static 'jquery/jquery.min.js'%}"></script>
+</head>
+<body>
+    <div class="myDiv">
+        <img src="{%static 'images/clinic2.jpeg'%}" />
+    </div>
+    <div class="myDiv">
+       <h2>CLINICAL DATA REPORTS</h2>
+    </div>
+    <div class="mycontainer">
+        <table>
+          <thead>
+            <tr>
+                <th>Vitals Name</th>
+                <th>Vitals Value</th>
+                <th>Measure Date Time</th>
+            </tr>
+          </thead>
+            {% for eachEntry in data %}
+            <tr>
+                <td>{{eachEntry.vitalsName}}</td>
+                <td>{{eachEntry.vitalsValue}}</td>
+                <td>{{eachEntry.vitalsMeasuredDate}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div class="mycontainerdisp">
+        <button type="button" class="button button1"
+        onclick="window.location.href='/';">
+        HOME
+        </button>
+    </div>
+</body>
+</html>

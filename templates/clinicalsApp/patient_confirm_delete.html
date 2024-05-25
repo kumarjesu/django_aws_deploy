@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+</head>
+<body>
+    <div class="myDiv">
+        <h1> PATIENTS DELETE CONFIRMATION</h1>
+        <div>
+            <img src="{%static 'images/clinic1.jpeg'%}" />
+        </div>
+    </div>
+    <div class="mycontainerdisp">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th1">
+                        Do you want to delete the Patient  {{patient.firstName}} ?
+                    </th>
+                    <th>
+                        <form method="post">
+                            <input type="submit" value="Confirm">
+                            <a href="/">Cancel</a>
+                            {% csrf_token %}
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    First Name: {{patient.firstName}}
+                </td>
+                <td>
+                    Last Name : {{patient.lastName}}
+                </td>
+                <td>
+                    Age : {{patient.age}}
+                </td>
+                <td>
+                    Gender : {{patient.gender}}
+                </td>
+            </tr>
+        </table>
+   </div>
+</body>
+</html>
